@@ -1,0 +1,66 @@
+\documentclass[letter,10pt]{article}
+\usepackage[utf8]{inputenc}
+
+%====================
+% File:         resume.tex
+% OWNER:        J. Alex Whitman
+%
+% Template From: https://github.com/TimmyChan 
+%               https://www.linkedin.com/in/timmy-l-chan/
+%
+% Last Updated: Jan 25th, 2023
+% Notes:        All formatting is done in TLCresume.sty
+%               No need to touch that file. 
+%               All actual content is in the sections/ folder.
+%====================
+
+\usepackage{TLCresume}
+
+%====================
+% CONTACT INFORMATION
+%====================
+\def\name{James (Alex) Whitman} % Name Here
+\def\phone{+1 (902) 817-6735}
+\def\city{Halifax, NS}
+\def\dob{2000/07/27}
+\def\email{jwhitma2@uwo.ca}
+\def\LinkedIn{jalexwhitman} % linkedin.com/in/______
+\def\github{jalexw} % github username
+\def\role{Full-Stack \& Machine Learning Engineer} % JOB TITLE
+
+%====================
+% SECTION SPACING
+%====================
+\def\sectionspace{\vspace{2em}}
+
+%====================
+% HEADER
+%====================
+\input{_header}
+
+%====================
+% RESUME CONTENT
+%====================
+\begin{document}
+\input{sections/objective}
+
+\section{Education \& Certifications}
+\input{sections/education}
+
+\section{Soft Skills}
+\input{sections/softskills}
+
+\section{Technical Skills}
+\input{sections/techskills}
+
+
+\section{Work Experience}
+\input{sections/experience}
+
+% \newpage
+
+\section{Activities \& Volunteering}
+\input{sections/activities}
+
+
+\end{document}

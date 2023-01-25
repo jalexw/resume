@@ -1,0 +1,8 @@
+{
+  "name": "jalexw-resume",
+  "description": "My resume, built with LaTeX",
+  "version": "1.0.0",
+  "scripts": {
+    "generate": "pdflatex -jobname=resume resume.tex"
+  }
+}
