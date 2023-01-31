@@ -3,6 +3,10 @@
   "description": "My resume, built with LaTeX",
   "version": "1.0.0",
   "scripts": {
+    "watch": "node watch.js",
     "generate": "pdflatex -jobname=resume resume.tex"
+  },
+  "devDependencies": {
+    "chokidar": "^3.5.3"
   }
 }
