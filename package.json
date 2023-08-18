@@ -1,12 +1,14 @@
 {
   "name": "jalexw-resume",
-  "description": "My resume, built with LaTeX",
+  "description": "My personal résumé, written with LaTeX",
   "version": "1.0.0",
   "scripts": {
-    "watch": "node watch.js",
+    "watch": "ts-node watch.ts",
     "generate": "pdflatex -jobname=resume resume.tex"
   },
   "devDependencies": {
-    "chokidar": "^3.5.3"
+    "@types/node": "^20.5.1",
+    "chokidar": "^3.5.3",
+    "ts-node": "^10.9.1"
   }
 }
