@@ -1,6 +1,6 @@
 {
   "name": "jalexw-resume",
-  "description": "My personal résumé, written with LaTeX",
+  "description": "My personal résumé. Created with the LaTeX document preparation system.",
   "version": "1.0.0",
   "scripts": {
     "watch": "ts-node watch.ts",

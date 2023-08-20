@@ -7,10 +7,10 @@ const watchFiles: string[] = [
   '_header.tex',
   'TLCresume.sty',
   'sections/**/*.tex',
-]
+];
 
 // Watch for changes in the files specified above
-const watcher = watch(watchFiles)
+const watcher = watch(watchFiles);
 
 function buildPDF() {
   // Execute the 'generate' script in package.json
@@ -21,8 +21,10 @@ function buildPDF() {
       return;
     }
 
+    if (stderr) console.log("STDERR: ", stderr);
+
     // the *entire* stdout and stderr (buffered)
-    console.log("PDF generated!")
+    console.log("PDF generated!");
   });
 }
 
