@@ -15,7 +15,7 @@ const watcher = watch(watchFiles);
 function buildPDF() {
   // Execute the 'generate' script in package.json
   // This will run the 'pdflatex' command to generate the PDF
-  exec('npm run generate', (err, stdout, stderr) => {
+  exec('bun run generate', (err, stdout, stderr) => {
     if (err) {
       // node couldn't execute the command
       return;
