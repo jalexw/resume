@@ -1,10 +1,11 @@
 {
   "name": "jalexw-resume",
-  "description": "My personal résumé. Created with the LaTeX document preparation system.",
+  "description": "The personal résumé of James Alexander Whitman.",
   "version": "1.0.0",
   "scripts": {
     "watch": "bun watch.ts",
-    "generate": "pdflatex -jobname=resume resume.tex"
+    "generate": "pdflatex -jobname=resume resume.tex",
+    "build": "bun ./src"
   },
   "devDependencies": {
     "chokidar": "^3.5.3"
