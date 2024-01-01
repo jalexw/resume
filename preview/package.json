@@ -1,0 +1,12 @@
+{
+  "name": "@jalexw/resume-preview",
+  "version": "1.0.0",
+  "dependencies": {
+    "bun-types": "^1.0.20",
+    "chokidar": "^3.5.3"
+  },
+  "description": "Hot-reloading server for my docx resume.",
+  "scripts": {
+    "watch": "DEBUG=false bun ./src"
+  }
+}

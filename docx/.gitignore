@@ -1,0 +1,6 @@
+resume.docx
+.DS_Store
+node_modules
+dist
+output
+output/**.docx

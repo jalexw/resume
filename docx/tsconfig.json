@@ -1,17 +1,16 @@
-
 {
   "compilerOptions": {
     "strict": true,
     "target": "es6",
-    "module": "commonjs",
+    "baseUrl": "./src",
     "esModuleInterop": true,
-    "resolveJsonModule": true,
+    "moduleResolution": "Bundler",
     "outDir": "dist",
     "rootDir": "src",
     "types": ["bun-types"]
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
   ],
   "exclude": [
     "node_modules"

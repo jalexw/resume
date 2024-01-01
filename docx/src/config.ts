@@ -8,20 +8,25 @@ declare global {
       RESUME_OUTPUT_DIR_NAME: string;
       RESUME_OUTPUT_FILE_PREFIX?: string;
       RESUME_OUTPUT_FILE_TIMESTAMP_TYPE?: "date" | "time" | "ISO" | "ms";
+      GITHUB_USERNAME: string;
+      CONTACT_EMAIL: string;
+      DISPLAY_NAME: string;
     }
   }
 }
 
-export class ResumeBuildConfig {
+export class ResumeConfig {
   private OUTPUT_DIR_PATH: string;
   private OUTPUT_FILE_PREFIX: string;
   private static OUTPUT_FILENAME_SUFFIX: string = "docx";
   private OUTPUT_FILE_TIMESTAMP_FORMATTER: ((date: Date) => string) | null;
+  private GITHUB_USERNAME: string;
+  private CONTACT_EMAIL: string;
+  private DISPLAY_NAME: string;
 
   constructor(env: typeof process.env) {
     if (!env.RESUME_OUTPUT_DIR_NAME) {
-      console.error("RESUME_OUTPUT_DIR_NAME environment variable not set!");
-      process.exit(1);
+      throw new Error("RESUME_OUTPUT_DIR_NAME environment variable not set!");
     }
     this.OUTPUT_DIR_PATH = join(process.cwd(), env.RESUME_OUTPUT_DIR_NAME);
 
@@ -44,6 +49,24 @@ export class ResumeBuildConfig {
         this.OUTPUT_FILE_TIMESTAMP_FORMATTER = null;
         break;
     }
+
+    if (!env.GITHUB_USERNAME) {
+      console.error("GITHUB_USERNAME environment variable not set!");
+      throw new Error("GITHUB_USERNAME environment variable not set!");
+    }
+    this.GITHUB_USERNAME = env.GITHUB_USERNAME;
+
+    if (!env.CONTACT_EMAIL) {
+      console.error("CONTACT_EMAIL environment variable not set!");
+      throw new Error("CONTACT_EMAIL environment variable not set!");
+    }
+    this.CONTACT_EMAIL = env.CONTACT_EMAIL;
+
+    if (!env.DISPLAY_NAME) {
+      console.error("DISPLAY_NAME environment variable not set!");
+      throw new Error("DISPLAY_NAME environment variable not set!");
+    }
+    this.DISPLAY_NAME = env.DISPLAY_NAME;
   }
 
   private padTo2Digits(num: number) {
@@ -76,7 +99,7 @@ export class ResumeBuildConfig {
       middle = `_${this.OUTPUT_FILE_TIMESTAMP_FORMATTER(new Date())}`;
     }
 
-    return `${this.OUTPUT_FILE_PREFIX}${middle}.${ResumeBuildConfig.OUTPUT_FILENAME_SUFFIX}`;
+    return `${this.OUTPUT_FILE_PREFIX}${middle}.${ResumeConfig.OUTPUT_FILENAME_SUFFIX}`;
   }
   
   public getOutputFilePath(): string {
@@ -85,10 +108,20 @@ export class ResumeBuildConfig {
 
   public async createOutputDirectoryIfNotExists() {
     if (!await exists(this.OUTPUT_DIR_PATH)) {
-      console.log("Creating output directory...")
       await mkdir(this.OUTPUT_DIR_PATH);
-      console.log("Output directory created!")
       return;
     }
+  }
+
+  public get github(): string {
+    return this.GITHUB_USERNAME;
+  }
+
+  public get email(): string {
+    return this.CONTACT_EMAIL;
+  }
+
+  public get name(): string {
+    return this.DISPLAY_NAME;
   }
 }

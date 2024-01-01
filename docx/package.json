@@ -1,0 +1,14 @@
+{
+  "name": "@jalexw/resume-docx",
+  "version": "1.0.0",
+  "dependencies": {
+    "bun-types": "^1.0.20",
+    "chokidar": "^3.5.3",
+    "docx": "^8.5.0"
+  },
+  "description": "The personal résumé of James Alexander Whitman.",
+  "scripts": {
+    "build": "bun ./src",
+    "watch": "bun ./src watch"
+  }
+}
